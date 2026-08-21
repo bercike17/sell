@@ -1,0 +1,26 @@
+name: SellShop
+main: hu.sellshop.SellShopPlugin
+version: 1.0.0
+api-version: 1.18
+author: You
+description: Ercek (nyers es kisutott is) es blokkok eladasa admin altal beallitott aron (Vault penz)
+
+softdepend: [Vault]
+
+commands:
+  sell:
+    description: Targyak eladasa
+    usage: "/<command> [hand|all]"
+    permission: sell.use
+  sellshop:
+    description: SellShop admin parancsok
+    usage: "/<command> setprice|removeprice|list|reload ..."
+    permission: sell.admin
+
+permissions:
+  sell.use:
+    description: Targyak eladasa
+    default: true
+  sell.admin:
+    description: Eladasi arak beallitasa
+    default: op

@@ -1,0 +1,58 @@
+# Az eladasi arak kulon fajlba (prices.yml) kerulnek mentesre, ezt a
+# /sellshop setprice paranccsal tudod szerkeszteni menet kozben.
+#
+# Hasznos anyagnevek referenciakent (ezeket masold be a setprice parancsba,
+# vagy egyszeruen tartsd a kezedben az adott targyat):
+#   Nyers ercek:    RAW_IRON, RAW_GOLD, RAW_COPPER
+#   Ercblokkok:     IRON_ORE, DEEPSLATE_IRON_ORE, GOLD_ORE, DEEPSLATE_GOLD_ORE,
+#                   COPPER_ORE, DEEPSLATE_COPPER_ORE, DIAMOND_ORE, DEEPSLATE_DIAMOND_ORE,
+#                   EMERALD_ORE, DEEPSLATE_EMERALD_ORE, LAPIS_ORE, DEEPSLATE_LAPIS_ORE,
+#                   REDSTONE_ORE, DEEPSLATE_REDSTONE_ORE, COAL_ORE, DEEPSLATE_COAL_ORE,
+#                   NETHER_GOLD_ORE, NETHER_QUARTZ_ORE, ANCIENT_DEBRIS
+#   Kisutott/nyers: IRON_INGOT, GOLD_INGOT, COPPER_INGOT, DIAMOND, EMERALD,
+#                   LAPIS_LAZULI, REDSTONE, COAL, NETHERITE_SCRAP, NETHERITE_INGOT
+#   Blokkok:        COBBLESTONE, STONE, DEEPSLATE, GRANITE, DIORITE, ANDESITE,
+#                   NETHERRACK, BLACKSTONE, OBSIDIAN, SAND, GRAVEL
+
+gui:
+  title: "&8Eladas"
+
+# Rang-alapu eladasi szorzo. A megadott PERMISSION NODE-okat oszd ki
+# LuckPerms-ben (vagy barmilyen mas jog-kezelo pluginban - ez egy sima
+# Bukkit permission, nem LuckPerms-specifikus) a rangoknak/csoportoknak.
+# Ha egy jatekos TOBB ilyen jogot is birtokol egyszerre, a LEGNAGYOBB
+# szorzot kapja meg (nem osszeadodnak).
+#
+# Peldak kiosztasra:
+#   /lp group vip permission set sellshop.multiplier.vip true
+#   /lp group mvp permission set sellshop.multiplier.mvp true
+#   /lp group legend permission set sellshop.multiplier.legend true
+sell-multipliers:
+  enabled: true
+  permissions:
+    sellshop.multiplier.vip: 1.1
+    sellshop.multiplier.mvp: 1.25
+    sellshop.multiplier.legend: 1.5
+
+messages:
+  no-permission: "&cNincs jogosultsagod ehhez a parancshoz."
+  player-only: "&cEzt a parancsot csak jatekoskent hasznalhatod."
+  invalid-usage: "&cHasznalat: %usage%"
+  vault-missing: "&cAz eladas jelenleg nem elerheto (nincs Vault/economy plugin)."
+  hold-item-required: "&cTarts a kezedben egy targyat!"
+  no-price-set: "&cErre a targyra (%material%) nincs beallitva eladasi ar."
+  nothing-to-sell: "&cNincs mit eladnod."
+  sold: "&aEladtal %amount%x %material%-ot %price%-ert!"
+  sold-with-multiplier: "&aEladtal %amount%x %material%-ot %price%-ert! &7(&6%multiplier% szorzo&7)"
+  sold-all: "&aEladtad az osszes eladhato targyadat &f%price%&a-ert! (%items% fajta targy)"
+  sold-all-with-multiplier: "&aEladtad az osszes eladhato targyadat &f%price%&a-ert! (%items% fajta targy) &7(&6%multiplier% szorzo&7)"
+  invalid-price: "&cErvenytelen ar! Adj meg egy pozitiv szamot."
+  invalid-material: "&cErvenytelen anyagnev: %material%"
+  price-set: "&aBeallitva: %material% ara mostantol %price% / darab."
+  price-removed: "&aTorolve: %material% eladasi ara."
+  price-not-set: "&cErre a targyra (%material%) nincs beallitva eladasi ar."
+  no-prices: "&cMeg egyetlen eladasi ar sincs beallitva."
+  reload-success: "&aSellShop config es arak ujratoltve."
+  lore-price: "&aAr: &f%price% / db"
+  lore-multiplier: "&7(&6%multiplier% szorzoval&7)"
+  lore-click: "&7Kattints: eladod az OSSZES ilyet az inventorybol"
